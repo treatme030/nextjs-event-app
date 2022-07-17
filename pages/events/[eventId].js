@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { getEventById } from '../../dummy-data';
+
 import EventSummary from '../../components/event_detail/event_summary';
 import EventLogistics from '../../components/event_detail/event_logistics';
 import EventContent from '../../components/event_detail/event_content';
