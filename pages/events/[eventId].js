@@ -4,6 +4,7 @@ import EventSummary from '../../components/event_detail/event_summary';
 import EventLogistics from '../../components/event_detail/event_logistics';
 import EventContent from '../../components/event_detail/event_content';
 import Head from 'next/head';
+import Comments from '../../components/input/comments';
 
 const EventDetailPage = ({ selectedEvent }) => {
   const event = selectedEvent;
@@ -36,6 +37,7 @@ const EventDetailPage = ({ selectedEvent }) => {
       <EventContent>
         <p>{description}</p>
       </EventContent>
+      <Comments />
     </>
   );
 };
