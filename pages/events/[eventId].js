@@ -23,7 +23,7 @@ const EventDetailPage = ({ selectedEvent }) => {
     );
   }
 
-  const { title, date, location, image, description } = event;
+  const { id, title, date, location, image, description } = event;
 
   return (
     <>
@@ -37,7 +37,7 @@ const EventDetailPage = ({ selectedEvent }) => {
       <EventContent>
         <p>{description}</p>
       </EventContent>
-      <Comments />
+      <Comments eventId={id} />
     </>
   );
 };
