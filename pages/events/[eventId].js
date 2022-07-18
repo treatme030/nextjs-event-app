@@ -3,7 +3,7 @@ import { getEventById, getFeaturedEvents } from '../../helpers/api_util';
 import EventSummary from '../../components/event_detail/event_summary';
 import EventLogistics from '../../components/event_detail/event_logistics';
 import EventContent from '../../components/event_detail/event_content';
-import ErrorAlert from '../../components/ui/error_alert';
+import Head from 'next/head';
 
 const EventDetailPage = ({ selectedEvent }) => {
   const event = selectedEvent;
@@ -11,6 +11,10 @@ const EventDetailPage = ({ selectedEvent }) => {
   if (!event) {
     return (
       <>
+        <Head>
+          <title>{event.title}</title>
+          <meta name='description' content={event.description} />
+        </Head>
         <div className='center'>
           <p>Loading...</p>
         </div>
