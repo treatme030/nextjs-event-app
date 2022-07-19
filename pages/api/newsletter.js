@@ -26,7 +26,6 @@ const handler = async (req, res) => {
       return;
     }
   }
-  client.close();
 };
 
 export default handler;

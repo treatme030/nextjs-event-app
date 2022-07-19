@@ -7,12 +7,17 @@ import NewComment from './new_comment';
 const Comments = ({ eventId }) => {
   const [showComments, setShowComments] = useState();
   const [comments, setCommets] = useState([]);
+  const [isFetchingComments, setIsFetchingComments] = useState(false);
 
   useEffect(() => {
     if (showComments) {
+      setIsFetchingComments(true);
       fetch(`/api/comments/${eventId}`)
         .then((response) => response.json())
-        .then((data) => setCommets(data.comments));
+        .then((data) => {
+          setCommets(data.comments);
+          setIsFetchingComments(false);
+        });
     }
   }, [showComments]);
 
@@ -38,7 +43,8 @@ const Comments = ({ eventId }) => {
         {showComments ? 'Hide' : 'Show'} Comments
       </button>
       {showComments && <NewComment onAddComment={addCommentHandler} />}
-      {showComments && <CommentList items={comments} />}
+      {showComments && !isFetchingComments && <CommentList items={comments} />}
+      {showComments && isFetchingComments && <p>Loading...</p>}
     </section>
   );
 };
